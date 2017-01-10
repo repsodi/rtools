@@ -1,0 +1,164 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+Plugin 'The-NERD-tree'
+Plugin 'L9'
+"Plugin 'FuzzyFinder'
+Plugin 'taglist.vim'
+Plugin 'cscope.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'xolox/vim-session'
+Plugin 'xolox/vim-misc'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+
+"
+" FuzzyFinder
+"
+"nnoremap ff :FufCoverageFile!<CR>
+"nnoremap fb :FufBuffer!<CR>
+"nnoremap fd :FufDir!<CR>
+"nnoremap fm :FufMruFile!<CR>
+
+" exclude file
+"let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|class)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+
+
+
+"
+" taglist.vim
+"
+set tags=./tags,./TAGS,tags,TAGS
+
+
+
+"
+" cscope.vim
+"
+set csprg=/usr/bin/cscope
+set csto=0
+set cst
+set nocsverb
+if filereadable("./cscope.out")
+    cs add cscope.out
+"else
+"    cs add /usr/src/linux/cscope.out
+endif
+set csverb
+
+
+
+"
+" ctrlp.vim
+"
+"let g:ctrlp_custom_ignore = {
+"    \ 'dir':  '\v[\/](out)|(\.(git|hg|svn|repo))$',
+"    \ 'file': '\v\.(exe|so|dll|swp|zip)$',
+"    \ 'link': 'some_bad_symbolic_links',
+"    \ }
+let g:ctrlp_custom_ignore = '\v[\/](out)|(\.(git|hg|svn|repo))$'
+"set wildignore+=*/out/*,*/.git/*,*/.hg/*,*/.svn/*,*/.repo/*,*.so,*.swp,*.zip
+let g:ctrlp_working_path_mode = ''
+"let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 40
+"let g:ctrlp_max_height = 40
+let g:ctrlp_match_window = 'results:100'
+let g:ctrlp_regexp = 1
+let g:ctrlp_root_markers = ['cscope.files']
+let g:ctrlp_user_command = ['cscope.files', 'cat %s/cscope.files']
+let g:ctrlp_lazy_update = 1
+
+
+
+"
+" vim-airline
+"
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1
+let g:airline_theme = "luna"
+nmap <leader>[ :bprevious<CR>
+nmap <leader>] :bnext<CR>
+
+
+
+"
+" vim-session
+"
+"let g:session_directory = ~
+let g:session_autoload = 'no'
+let g:session_autosave = 'yes'
+
+
+
+"
+" 20160127
+"
+set nocp                                   " no compatible with vi
+colorscheme desert256                      " color scheme (/usr/share/vim/vim??/colors)
+set background=dark                        " background
+syntax on                                  " syntax highlighting
+filetype on                                " syntax highlighting by file type
+set autoindent                             " auto indent
+set smartindent                            " smart indent
+set cindent                                " C indent
+set tabstop=4                              " tab width
+set shiftwidth=4                           " indent width
+set expandtab                              " tab to space
+"set title                                 " editing file name on title bar
+set ruler                                  " line and column
+set number                                 " line number
+"set statusline=%h%F%m%r%=[%l:%c(%p%%)]    " status line formatting
+"set ignorecase                            " ignore case for searching
+"set hlsearch                              " search highlighting
+set nobackup                               " don't make backup
+set noundofile                             " don’t make undo file
+"set showmatch                             " show matching (), {}, []
+"set nopaste                               " avoid stairs by paste
+"set history=200                           " command history recording
+set backspace=indent,eol,start             " backspace action
+"set mouse=a                               " no mouse selection for line number area
+"set fencs=utf8,euc-kr                     " euc-kr support on Linux
+set t_Co=256                               " color level
