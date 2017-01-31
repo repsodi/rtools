@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Display
+sudo cp ~/xtra/lcd/cmdline.txt.ori /boot/cmdline.txt
+sudo cp ~/xtra/lcd/config.txt.ori /boot/config.txt
+sudo cp ~/xtra/lcd/console-setup.ori /etc/default/console-setup
+sudo cp ~/xtra/lcd/modules.ori /etc/modules
+
+# Touch
+sudo cp ~/xtra/lcd/99-fbturbo.conf.ori /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+sudo rm -f /etc/X11/xorg.conf.d/99-ads7846-cal.conf
+sudo rm -f /etc/X11/xorg.conf.d/99-calibration.conf
+if [ -d "/etc/X11/xorg.conf.d" ]
+then
+    sudo rmdir /etc/X11/xorg.conf.d
+fi
