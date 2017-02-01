@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#echo [Ookla]
+#~/opt/speedtest-cli/speedtest.py --server 5249
+
+echo [kdatacenter.com]
+~/opt/speedtest-cli/speedtest.py --server 6527
