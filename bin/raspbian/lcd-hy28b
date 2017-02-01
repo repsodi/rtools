@@ -1,13 +1,13 @@
 #!/bin/sh
 
 # Display
-sudo cp ~/xtra/lcd/cmdline.txt.hy28b /boot/cmdline.txt
-sudo cp ~/xtra/lcd/config.txt.hy28b /boot/config.txt
-sudo cp ~/xtra/lcd/console-setup.hy28b /etc/default/console-setup
-sudo cp ~/xtra/lcd/modules.hy28b /etc/modules
+sudo cp ~/opt/rtools/conf/raspbian/lcd/cmdline.txt.hy28b /boot/cmdline.txt
+sudo cp ~/opt/rtools/conf/raspbian/lcd/config.txt.hy28b /boot/config.txt
+sudo cp ~/opt/rtools/conf/raspbian/lcd/console-setup.hy28b /etc/default/console-setup
+sudo cp ~/opt/rtools/conf/raspbian/lcd/modules.hy28b /etc/modules
 
 # Touch
-sudo cp ~/xtra/lcd/99-fbturbo.conf.hy28b /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+sudo cp ~/opt/rtools/conf/raspbian/lcd/99-fbturbo.conf.hy28b /usr/share/X11/xorg.conf.d/99-fbturbo.conf
 sudo mkdir -p /etc/X11/xorg.conf.d
-sudo cp ~/xtra/lcd/99-ads7846-cal.conf.hy28b /etc/X11/xorg.conf.d/99-ads7846-cal.conf
-sudo cp ~/xtra/lcd/99-calibration.conf.hy28b /etc/X11/xorg.conf.d/99-calibration.conf
+sudo cp ~/opt/rtools/conf/raspbian/lcd/99-ads7846-cal.conf.hy28b /etc/X11/xorg.conf.d/99-ads7846-cal.conf
+sudo cp ~/opt/rtools/conf/raspbian/lcd/99-calibration.conf.hy28b /etc/X11/xorg.conf.d/99-calibration.conf
