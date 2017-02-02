@@ -1,2 +1,2 @@
 # pi
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/bin:~/bin/raspbian
