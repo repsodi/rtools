@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ ! -f /etc/samba/smb.conf.ori ]; then
+    echo "Creating /etc/samba/smb.conf.ori..."
+    sudo cp --preserve=timestamps /etc/samba/smb.conf /etc/samba/smb.conf.ori
+else
+    echo "/etc/samba/smb.conf.ori exists."
+fi
+
+export USERHOME=$HOME
+echo 'cat /etc/samba/smb.conf.ori $USERHOME/opt/rtools/conf/raspbian/smb.conf > /etc/samba/smb.conf' | sudo -Es
+echo "/etc/samba/smb.conf has been generated."

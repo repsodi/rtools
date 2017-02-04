@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ ! -f $HOME/.bashrc.ori ]; then
+    echo "Creating .bashrc.ori..."
+    cp --preserve=timestamps $HOME/.bashrc $HOME/.bashrc.ori
+else
+    echo ".bashrc.ori exists."
+fi
+
+cat $HOME/.bashrc.ori $HOME/opt/rtools/env/raspbian/_bashrc > $HOME/.bashrc
+echo ".bashrc has been generated."
