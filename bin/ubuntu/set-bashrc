@@ -1,11 +1,15 @@
 #!/bin/sh
 
-if [ ! -f $HOME/.bashrc.ori ]; then
-    echo "Creating .bashrc.ori..."
-    cp --preserve=timestamps $HOME/.bashrc $HOME/.bashrc.ori
+export FILE=$HOME/.bashrc
+export CONFIG=$HOME/opt/rtools/env/ubuntu/_bashrc
+
+if [ ! -f $FILE.ori ]; then
+    echo "Creating $FILE.ori..."
+    cp --preserve=timestamps $FILE $FILE.ori
 else
-    echo ".bashrc.ori exists."
+    echo "$FILE.ori exists."
 fi
 
-cat $HOME/.bashrc.ori $HOME/opt/rtools/env/ubuntu/_bashrc > $HOME/.bashrc
-echo ".bashrc has been generated."
+cat $FILE.ori $CONFIG > $FILE
+echo "$FILE has been generated."
+ls -la $FILE*

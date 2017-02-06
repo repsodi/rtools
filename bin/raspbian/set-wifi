@@ -1,0 +1,56 @@
+#!/bin/sh
+
+export USERHOME=$HOME
+export FILE=/etc/modprobe.d/raspi-blacklist.conf
+export CONFIG=$USERHOME/opt/rtools/conf/raspbian/raspi-blacklist.conf
+
+if [ ! -f $FILE.ori ]; then
+    echo "Creating $FILE.ori..."
+    sudo cp --preserve=timestamps $FILE $FILE.ori
+else
+    echo "$FILE.ori exists."
+fi
+
+echo 'cat $FILE.ori $CONFIG > $FILE' | sudo -Es
+echo "$FILE has been generated."
+ls -la $FILE*
+
+export USERHOME=$HOME
+export FILE=/etc/modprobe.d/8192cu.conf
+export CONFIG=$USERHOME/opt/rtools/conf/raspbian/8192cu.conf
+
+echo 'cat $CONFIG > $FILE' | sudo -Es
+echo "$FILE has been generated."
+ls -la $FILE*
+
+export USERHOME=$HOME
+export FILE=/etc/network/interfaces
+export CONFIG=$USERHOME/opt/rtools/conf/raspbian/network-interfaces
+
+if [ ! -f $FILE.ori ]; then
+    echo "Creating $FILE.ori..."
+    sudo cp --preserve=timestamps $FILE $FILE.ori
+else
+    echo "$FILE.ori exists."
+fi
+
+echo 'cat $FILE.ori $CONFIG > $FILE' | sudo -Es
+sudo vi $FILE
+echo "$FILE has been generated."
+ls -la $FILE*
+
+export USERHOME=$HOME
+export FILE=/etc/wpa_supplicant/wpa_supplicant.conf
+export CONFIG=$USERHOME/opt/rtools/conf/raspbian/wpa_supplicant.conf
+
+if [ ! -f $FILE.ori ]; then
+    echo "Creating $FILE.ori..."
+    sudo cp --preserve=timestamps $FILE $FILE.ori
+else
+    echo "$FILE.ori exists."
+fi
+
+echo 'cat $FILE.ori $CONFIG > $FILE' | sudo -Es
+sudo vi $FILE
+echo "$FILE has been generated."
+ls -la $FILE*
