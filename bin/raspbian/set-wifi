@@ -54,3 +54,7 @@ echo 'cat $FILE.ori $CONFIG > $FILE' | sudo -Es
 sudo vi $FILE
 echo "$FILE has been generated."
 ls -la $FILE*
+
+echo "Restart wlan0..."
+sudo ifdown wlan0
+sudo ifup wlan0
