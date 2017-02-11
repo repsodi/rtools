@@ -1,14 +1,14 @@
 #!/bin/sh
 
-export USERHOME=$HOME
-export FILE1=/etc/modprobe.d/raspi-blacklist.conf
-export CONFIG1=$USERHOME/opt/rtools/conf/raspbian/raspi-blacklist.conf
-export FILE2=/etc/modprobe.d/8192cu.conf
-export CONFIG2=$USERHOME/opt/rtools/conf/raspbian/8192cu.conf
-export FILE3=/etc/network/interfaces
-export CONFIG3=$USERHOME/opt/rtools/conf/raspbian/network-interfaces
-export FILE4=/etc/wpa_supplicant/wpa_supplicant.conf
-export CONFIG4=$USERHOME/opt/rtools/conf/raspbian/wpa_supplicant.conf
+USERHOME=$HOME
+FILE1=/etc/modprobe.d/raspi-blacklist.conf
+CONFIG1=$USERHOME/opt/rtools/conf/raspbian/raspi-blacklist.conf
+FILE2=/etc/modprobe.d/8192cu.conf
+CONFIG2=$USERHOME/opt/rtools/conf/raspbian/8192cu.conf
+FILE3=/etc/network/interfaces
+CONFIG3=$USERHOME/opt/rtools/conf/raspbian/network-interfaces
+FILE4=/etc/wpa_supplicant/wpa_supplicant.conf
+CONFIG4=$USERHOME/opt/rtools/conf/raspbian/wpa_supplicant.conf
 
 if [ ! -f $FILE1.ori ]; then
     echo "Creating $FILE1.ori..."

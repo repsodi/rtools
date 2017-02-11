@@ -1,8 +1,8 @@
 #!/bin/sh
 
-export USERHOME=$HOME
-export FILE=/etc/samba/smb.conf
-export CONFIG=$USERHOME/opt/rtools/conf/ubuntu/smb.conf
+USERHOME=$HOME
+FILE=/etc/samba/smb.conf
+CONFIG=$USERHOME/opt/rtools/conf/ubuntu/smb.conf
 
 if [ ! -f $FILE.ori ]; then
     echo "Creating $FILE.ori..."
