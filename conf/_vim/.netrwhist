@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home001/gyeongil.baek/prj/brillo-m9-release/hardware/bsp/kernel/qcom/qcom-msm-3.10/drivers/soc/qcom/lge'
+let g:netrw_dirhist_2='/home001/gyeongil.baek/prj/BrilloPlatform_master'
+let g:netrw_dirhist_3='/home001/gyeongil.baek/prj/BrilloPlatform_master/frameworks/rs'
+let g:netrw_dirhist_4='/home001/gyeongil.baek/prj/z_qmi'
+let g:netrw_dirhist_5='/home001/gyeongil.baek/prj/gcc-4.8.4/INSTALL'
