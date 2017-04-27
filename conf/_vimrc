@@ -32,7 +32,8 @@ Plugin 'L9'
 Plugin 'taglist.vim'
 Plugin 'cscope.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
 Plugin 'snipMate'
@@ -160,6 +161,7 @@ set noundofile                             " don’t make undo file
 "set nopaste                               " avoid stairs by paste
 "set history=200                           " command history recording
 set backspace=indent,eol,start             " backspace action
-"set mouse=a                               " no mouse selection for line number area
+set mouse=a                                " no mouse selection for line number area
+set ttymouse=xterm2                        " necessary for gnu screen & mouse
 "set fencs=utf8,euc-kr                     " euc-kr support on Linux
 set t_Co=256                               " color level
