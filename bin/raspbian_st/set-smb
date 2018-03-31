@@ -1,0 +1,16 @@
+#!/bin/sh
+
+export USERHOME=$HOME
+export FILE=/etc/samba/smb.conf
+export CONFIG=$USERHOME/opt/rtools/conf/raspbian/smb.conf
+
+if [ ! -f $FILE.ori ]; then
+    echo "Creating $FILE.ori..."
+    sudo cp --preserve=timestamps $FILE $FILE.ori
+else
+    echo "$FILE.ori exists."
+fi
+
+echo 'cat $FILE.ori $CONFIG > $FILE' | sudo -Es
+echo "$FILE has been generated."
+ls -la $FILE*
