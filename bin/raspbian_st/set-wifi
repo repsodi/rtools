@@ -5,8 +5,8 @@ export FILE1=/etc/modprobe.d/raspi-blacklist.conf
 export CONFIG1=$USERHOME/opt/rtools/conf/raspbian/raspi-blacklist.conf
 export FILE2=/etc/modprobe.d/8192cu.conf
 export CONFIG2=$USERHOME/opt/rtools/conf/raspbian/8192cu.conf
-export FILE3=/etc/network/interfaces
-export CONFIG3=$USERHOME/opt/rtools/conf/raspbian/network-interfaces
+#export FILE3=/etc/network/interfaces
+#export CONFIG3=$USERHOME/opt/rtools/conf/raspbian/network-interfaces
 export FILE4=/etc/wpa_supplicant/wpa_supplicant.conf
 export CONFIG4=$USERHOME/opt/rtools/conf/raspbian/wpa_supplicant.conf
 
@@ -22,15 +22,15 @@ echo "$FILE1 has been generated."
 echo 'cat $CONFIG2 > $FILE2' | sudo -Es
 echo "$FILE2 has been generated."
 
-if [ ! -f $FILE3.ori ]; then
-    echo "Creating $FILE3.ori..."
-    sudo cp --preserve=timestamps $FILE3 $FILE3.ori
-else
-    echo "$FILE3.ori exists."
-fi
-echo 'cat $FILE3.ori $CONFIG3 > $FILE3' | sudo -Es
-sudo vi $FILE3
-echo "$FILE3 has been generated."
+#if [ ! -f $FILE3.ori ]; then
+#    echo "Creating $FILE3.ori..."
+#    sudo cp --preserve=timestamps $FILE3 $FILE3.ori
+#else
+#    echo "$FILE3.ori exists."
+#fi
+#echo 'cat $FILE3.ori $CONFIG3 > $FILE3' | sudo -Es
+#sudo vi $FILE3
+#echo "$FILE3 has been generated."
 
 if [ ! -f $FILE4.ori ]; then
     echo "Creating $FILE4.ori..."
@@ -44,12 +44,12 @@ echo "$FILE4 has been generated."
 
 ls -la $FILE1*
 ls -la $FILE2*
-ls -la $FILE3*
+#ls -la $FILE3*
 ls -la $FILE4*
 
-echo "Restart wlan0..."
-sudo ifdown wlan0
-sudo ifup wlan0
-echo "Restart wlan1..."
-sudo ifdown wlan1
-sudo ifup wlan1
+#echo "Restart wlan0..."
+#sudo ifdown wlan0
+#sudo ifup wlan0
+#echo "Restart wlan1..."
+#sudo ifdown wlan1
+#sudo ifup wlan1
