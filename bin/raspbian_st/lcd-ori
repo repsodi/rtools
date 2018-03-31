@@ -1,13 +1,15 @@
 #!/bin/sh
 
+export OS_VER=raspbian_st
+
 # Display
-sudo cp ~/opt/rtools/conf/raspbian/lcd/cmdline.txt.ori /boot/cmdline.txt
-sudo cp ~/opt/rtools/conf/raspbian/lcd/lcd/config.txt.ori /boot/config.txt
-sudo cp ~/opt/rtools/conf/raspbian/lcd/console-setup.ori /etc/default/console-setup
-sudo cp ~/opt/rtools/conf/raspbian/lcd/modules.ori /etc/modules
+sudo cp ~/opt/rtools/conf/$OS_VER/lcd/cmdline.txt.ori /boot/cmdline.txt
+sudo cp ~/opt/rtools/conf/$OS_VER/lcd/lcd/config.txt.ori /boot/config.txt
+sudo cp ~/opt/rtools/conf/$OS_VER/lcd/console-setup.ori /etc/default/console-setup
+sudo cp ~/opt/rtools/conf/$OS_VER/lcd/modules.ori /etc/modules
 
 # Touch
-sudo cp ~/opt/rtools/conf/raspbian/lcd/99-fbturbo.conf.ori /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+sudo cp ~/opt/rtools/conf/$OS_VER/lcd/99-fbturbo.conf.ori /usr/share/X11/xorg.conf.d/99-fbturbo.conf
 sudo rm -f /etc/X11/xorg.conf.d/99-ads7846-cal.conf
 sudo rm -f /etc/X11/xorg.conf.d/99-calibration.conf
 if [ -d "/etc/X11/xorg.conf.d" ]

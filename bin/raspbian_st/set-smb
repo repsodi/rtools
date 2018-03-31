@@ -1,8 +1,9 @@
 #!/bin/sh
 
+export OS_VER=raspbian_st
 export USERHOME=$HOME
 export FILE=/etc/samba/smb.conf
-export CONFIG=$USERHOME/opt/rtools/conf/raspbian/smb.conf
+export CONFIG=$USERHOME/opt/rtools/conf/$OS_VER/smb.conf
 
 if [ ! -f $FILE.ori ]; then
     echo "Creating $FILE.ori..."
