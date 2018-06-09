@@ -1,10 +1,10 @@
 #!/bin/sh
 
-export OS_VER=raspbian_st
+export OS_VER=raspbian9
 
 # Display
 sudo cp ~/opt/rtools/conf/$OS_VER/lcd/cmdline.txt.ori /boot/cmdline.txt
-sudo cp ~/opt/rtools/conf/$OS_VER/lcd/config.txt.5inch /boot/config.txt
+sudo cp ~/opt/rtools/conf/$OS_VER/lcd/lcd/config.txt.ori /boot/config.txt
 sudo cp ~/opt/rtools/conf/$OS_VER/lcd/console-setup.ori /etc/default/console-setup
 sudo cp ~/opt/rtools/conf/$OS_VER/lcd/modules.ori /etc/modules
 

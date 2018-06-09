@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export OS_VER=raspbian_st
+export OS_VER=raspbian9
 
 # Display
 sudo cp ~/opt/rtools/conf/$OS_VER/lcd/cmdline.txt.hy28b /boot/cmdline.txt

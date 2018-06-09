@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export OS_VER=raspbian_st
+export OS_VER=raspbian9
 export USERHOME=$HOME
 export FILE=/etc/samba/smb.conf
 export CONFIG=$USERHOME/opt/rtools/conf/$OS_VER/smb.conf

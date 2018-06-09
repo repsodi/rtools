@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export OS_VER=raspbian_st
+export OS_VER=raspbian9
 export FILE=$HOME/.bashrc
 export CONFIG=$HOME/opt/rtools/conf/$OS_VER/_bashrc
 
