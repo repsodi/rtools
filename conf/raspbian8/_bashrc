@@ -1,0 +1,3 @@
+
+# pi
+export PATH=~/opt/rtools/bin:~/opt/rtools/bin/raspbian8:$PATH

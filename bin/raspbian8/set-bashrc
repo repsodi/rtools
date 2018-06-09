@@ -1,7 +1,8 @@
 #!/bin/sh
 
+export OS_VER=raspbian8
 export FILE=$HOME/.bashrc
-export CONFIG=$HOME/opt/rtools/conf/raspbian/_bashrc
+export CONFIG=$HOME/opt/rtools/conf/$OS_VER/_bashrc
 
 if [ ! -f $FILE.ori ]; then
     echo "Creating $FILE.ori..."
