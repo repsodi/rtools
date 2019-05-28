@@ -1,0 +1,18 @@
+#!/bin/sh
+
+. detect-os
+
+# Display
+sudo cp ~/opt/rtools/conf/${os_name}/lcd/cmdline.txt.ori /boot/cmdline.txt
+sudo cp ~/opt/rtools/conf/${os_name}/lcd/config.txt.5inch /boot/config.txt
+sudo cp ~/opt/rtools/conf/${os_name}/lcd/console-setup.ori /etc/default/console-setup
+sudo cp ~/opt/rtools/conf/${os_name}/lcd/modules.ori /etc/modules
+
+# Touch
+sudo cp ~/opt/rtools/conf/${os_name}/lcd/99-fbturbo.conf.ori /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+sudo rm -f /etc/X11/xorg.conf.d/99-ads7846-cal.conf
+sudo rm -f /etc/X11/xorg.conf.d/99-calibration.conf
+if [ -d "/etc/X11/xorg.conf.d" ]
+then
+    sudo rmdir /etc/X11/xorg.conf.d
+fi

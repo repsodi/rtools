@@ -1,0 +1,65 @@
+#!/bin/sh
+
+. detect-os
+
+file1=/etc/modprobe.d/raspi-blacklist.conf
+config1=${HOME}/opt/rtools/conf/${os_name}/raspi-blacklist.conf
+file2=/etc/modprobe.d/8192cu.conf
+config2=${HOME}/opt/rtools/conf/${os_name}/8192cu.conf
+if [ ${os_conf} = "raspbian8" ]; then
+    file3=/etc/network/interfaces
+    config3=${HOME}/opt/rtools/conf/${os_name}/network-interfaces
+fi
+file4=/etc/wpa_supplicant/wpa_supplicant.conf
+config4=${HOME}/opt/rtools/conf/${os_name}/wpa_supplicant.conf
+
+if [ ! -f ${file1}.ori ]; then
+    echo "Creating ${file1}.ori..."
+    sudo cp -p ${file1} ${file1}.ori
+else
+    echo "${file1}.ori exists."
+fi
+echo 'cat ${file1}.ori ${config1} > ${file1}' | sudo -Es
+sudo vim ${file1}
+echo "${file1} has been generated."
+
+echo 'cat ${config2} > ${file2}' | sudo -Es
+echo "${file2} has been generated."
+
+if [ ${os_conf} = "raspbian8" ]; then
+    if [ ! -f ${file3}.ori ]; then
+        echo "Creating ${file3}.ori..."
+        sudo cp -p ${file3} ${file3}.ori
+    else
+        echo "${file3}.ori exists."
+    fi
+    echo 'cat ${file3}.ori ${config3} > ${file3}' | sudo -Es
+    sudo vi ${file3}
+    echo "${file3} has been generated."
+fi
+
+if [ ! -f ${file4}.ori ]; then
+    echo "Creating ${file4}.ori..."
+    sudo cp -p ${file4} ${file4}.ori
+else
+    echo "${file4}.ori exists."
+fi
+echo 'cat ${file4}.ori ${config4} > ${file4}' | sudo -Es
+sudo vi ${file4}
+echo "${file4} has been generated."
+
+ls -l ${file1}*
+ls -l ${file2}*
+if [ ${os_conf} = "raspbian8" ]; then
+    ls -l ${file3}*
+fi
+ls -l ${file4}*
+
+if [ ${os_conf} = "raspbian8" ]; then
+    echo "Restart wlan0..."
+    sudo ifdown wlan0
+    sudo ifup wlan0
+    echo "Restart wlan1..."
+    sudo ifdown wlan1
+    sudo ifup wlan1
+fi

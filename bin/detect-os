@@ -1,0 +1,43 @@
+#!/bin/bash
+
+os_id=$(lsb_release -is)
+os_desc=$(lsb_release -ds)
+os_rel=$(lsb_release -rs)
+os_code=$(lsb_release -cs)
+
+echo "Distributor ID: ${os_id}"
+echo "Description:    ${os_desc}"
+echo "Release:        ${os_rel}"
+echo "Codename:       ${os_code}"
+
+case ${os_id} in
+    Ubuntu)
+        case ${os_code} in
+            *)
+                os_name=ubuntu
+                os_conf=ubuntu
+                ;;
+        esac
+	;;
+    Raspbian)
+        case ${os_code} in
+            jessie)
+                os_name=raspbian
+                os_conf=raspbian8
+                ;;
+            stretch)
+                os_name=raspbian
+                os_conf=raspbian9
+                ;;
+            *)
+                os_name=raspbian
+                os_conf=raspbian
+                ;;
+        esac
+	;;
+    *)
+        os_conf=""
+        ;;
+esac
+
+echo "Config:         ${os_conf}"

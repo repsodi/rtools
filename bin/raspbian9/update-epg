@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sudo python /home/pi/opt/epg2xml/epg2xml.py -i LG -s /home/hts/.hts/tvheadend/epggrab/xmltv.sock

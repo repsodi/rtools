@@ -2,8 +2,7 @@
 
 . detect-os
 
-file=/etc/samba/smb.conf
-config=${HOME}/opt/rtools/conf/${os_name}/smb.conf
+file=/etc/default/locale
 
 if [ ! -f ${file}.ori ]; then
     echo "Creating ${file}.ori..."
@@ -12,6 +11,8 @@ else
     echo "${file}.ori exists."
 fi
 
-echo 'cat ${file}.ori ${config} > ${file}' | sudo -Es
+sudo rm ${file}
+sudo update-locale LANG=en_US.UTF-8
 echo "${file} has been generated."
 ls -la ${file}*
+cat ${file}
