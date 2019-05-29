@@ -4,6 +4,7 @@
 
 file=${HOME}/.profile
 config=${HOME}/opt/rtools/conf/${os_name}/_profile
+
 if [ ! -f ${file}.ori ]; then
     echo "Creating ${file}.ori..."
     cp -p ${file} ${file}.ori

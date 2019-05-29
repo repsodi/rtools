@@ -12,6 +12,6 @@ else
     echo "${file}.ori exists."
 fi
 
-echo 'cat ${file}.ori ${config} > ${file}' | sudo -Es
+echo "cat ${file}.ori ${config} > ${file}" | sudo -Es
 echo "${file} has been generated."
 ls -la ${file}*

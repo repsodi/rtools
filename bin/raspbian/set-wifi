@@ -19,11 +19,11 @@ if [ ! -f ${file1}.ori ]; then
 else
     echo "${file1}.ori exists."
 fi
-echo 'cat ${file1}.ori ${config1} > ${file1}' | sudo -Es
+echo "cat ${file1}.ori ${config1} > ${file1}" | sudo -Es
 sudo vim ${file1}
 echo "${file1} has been generated."
 
-echo 'cat ${config2} > ${file2}' | sudo -Es
+echo "cat ${config2} > ${file2}" | sudo -Es
 echo "${file2} has been generated."
 
 if [ ${os_conf} = "raspbian8" ]; then
@@ -33,7 +33,7 @@ if [ ${os_conf} = "raspbian8" ]; then
     else
         echo "${file3}.ori exists."
     fi
-    echo 'cat ${file3}.ori ${config3} > ${file3}' | sudo -Es
+    echo "cat ${file3}.ori ${config3} > ${file3}" | sudo -Es
     sudo vi ${file3}
     echo "${file3} has been generated."
 fi
@@ -44,7 +44,7 @@ if [ ! -f ${file4}.ori ]; then
 else
     echo "${file4}.ori exists."
 fi
-echo 'cat ${file4}.ori ${config4} > ${file4}' | sudo -Es
+echo "cat ${file4}.ori ${config4} > ${file4}" | sudo -Es
 sudo vi ${file4}
 echo "${file4} has been generated."
 
