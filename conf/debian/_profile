@@ -1,0 +1,3 @@
+
+# repsodi
+export PATH=~/opt/rtools/bin:~/opt/rtools/bin/debian:$PATH

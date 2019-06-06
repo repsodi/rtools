@@ -23,6 +23,14 @@ case ${os_id} in
                 ;;
         esac
 	;;
+    Debian)
+        case ${os_code} in
+            *)
+                os_name=debian
+                os_conf=debian
+                ;;
+        esac
+        ;;
     Raspbian)
         case ${os_code} in
             jessie)
