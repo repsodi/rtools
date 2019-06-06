@@ -1,9 +1,9 @@
 #!/bin/sh
 
-. detect-os
+. $(dirname $0)/detect-os
 
-file=${HOME}/.bashrc
-config=${HOME}/opt/rtools/conf/${os_name}/_bashrc
+file=${HOME}/.profile
+config=${HOME}/opt/rtools/conf/${os_name}/_profile
 
 if [ ! -f ${file}.ori ]; then
     echo "Creating ${file}.ori..."

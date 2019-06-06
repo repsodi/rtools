@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. detect-os
+. $(dirname $0)/detect-os
 
 file=${HOME}/.bashrc
 config=${HOME}/opt/rtools/conf/${os_name}/_bashrc

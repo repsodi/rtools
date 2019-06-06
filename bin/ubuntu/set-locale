@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. detect-os
+. $(dirname $0)/../detect-os
 
 file=/etc/default/locale
 
