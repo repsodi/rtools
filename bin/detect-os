@@ -22,7 +22,7 @@ case ${os_id} in
                 os_conf=ubuntu
                 ;;
         esac
-	;;
+        ;;
     Debian)
         case ${os_code} in
             *)
@@ -46,7 +46,7 @@ case ${os_id} in
                 os_conf=raspbian
                 ;;
         esac
-	;;
+        ;;
     *)
         os_conf=""
         ;;
