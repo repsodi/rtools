@@ -41,6 +41,10 @@ case ${os_id} in
                 os_name=raspbian
                 os_conf=raspbian9
                 ;;
+            buster)
+                os_name=raspbian
+                os_conf=raspbian10
+                ;;
             *)
                 os_name=raspbian
                 os_conf=raspbian
