@@ -17,6 +17,12 @@ config2=${HOME}/opt/rtools/conf/${os_name}/8192cu.conf
 if [ ${os_conf} = "raspbian8" ]; then
     file3=/etc/network/interfaces
     config3=${HOME}/opt/rtools/conf/${os_name}/network-interfaces
+elif [ ${os_conf} = "raspbian9" ]; then
+    file3=/etc/network/interfaces
+    config3=${HOME}/opt/rtools/conf/${os_name}/network-interfaces
+else
+    file3=/lib/systemd/system/wlan-pm-off.service
+    config3=${HOME}/opt/rtools/conf/${os_name}/wlan-pm-off.service
 fi
 file4=/etc/wpa_supplicant/wpa_supplicant.conf
 config4=${HOME}/opt/rtools/conf/${os_name}/wpa_supplicant.conf
@@ -43,6 +49,11 @@ if [ ${os_conf} = "raspbian8" ]; then
     fi
     echo "cat ${file3}.ori ${config3} > ${file3}" | sudo -Es
     sudo vim ${file3}
+    echo "${file3} has been generated."
+elif [ ${os_conf} = "raspbian9" ]; then
+    echo "Nothing done."
+else
+    sudo cp -f ${config3} ${file3}
     echo "${file3} has been generated."
 fi
 
