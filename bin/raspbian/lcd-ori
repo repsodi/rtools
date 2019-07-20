@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. detect-os
+. $(dirname $0)/../detect-os
 
 # Display
 sudo cp ~/opt/rtools/conf/${os_name}/lcd/cmdline.txt.ori /boot/cmdline.txt

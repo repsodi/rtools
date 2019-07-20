@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. detect-os
+. $(dirname $0)/../detect-os
 
 if [ ${os_conf} = "raspbian8" ]; then
     file1=/etc/modprobe.d/raspi-blacklist.conf
