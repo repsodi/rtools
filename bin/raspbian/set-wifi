@@ -2,8 +2,16 @@
 
 . detect-os
 
-file1=/etc/modprobe.d/raspi-blacklist.conf
-config1=${HOME}/opt/rtools/conf/${os_name}/raspi-blacklist.conf
+if [ ${os_conf} = "raspbian8" ]; then
+    file1=/etc/modprobe.d/raspi-blacklist.conf
+    config1=${HOME}/opt/rtools/conf/${os_name}/raspi-blacklist.conf
+elif [ ${os_conf} = "raspbian9" ]; then
+    file1=/etc/modprobe.d/raspi-blacklist.conf
+    config1=${HOME}/opt/rtools/conf/${os_name}/raspi-blacklist.conf
+else
+    file1=/boot/config.txt
+    config1=${HOME}/opt/rtools/conf/${os_name}/config.txt
+fi
 file2=/etc/modprobe.d/8192cu.conf
 config2=${HOME}/opt/rtools/conf/${os_name}/8192cu.conf
 if [ ${os_conf} = "raspbian8" ]; then
@@ -34,7 +42,7 @@ if [ ${os_conf} = "raspbian8" ]; then
         echo "${file3}.ori exists."
     fi
     echo "cat ${file3}.ori ${config3} > ${file3}" | sudo -Es
-    sudo vi ${file3}
+    sudo vim ${file3}
     echo "${file3} has been generated."
 fi
 
@@ -45,7 +53,7 @@ else
     echo "${file4}.ori exists."
 fi
 echo "cat ${file4}.ori ${config4} > ${file4}" | sudo -Es
-sudo vi ${file4}
+sudo vim ${file4}
 echo "${file4} has been generated."
 
 ls -l ${file1}*
