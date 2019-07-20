@@ -71,6 +71,10 @@ ls -l ${file1}*
 ls -l ${file2}*
 if [ ${os_conf} = "raspbian8" ]; then
     ls -l ${file3}*
+elif [ ${os_conf} = "raspbian9" ]; then
+    echo "Nothing."
+else
+    ls -l ${file3}*
 fi
 ls -l ${file4}*
 
