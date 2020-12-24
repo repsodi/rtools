@@ -12,6 +12,9 @@ else
     echo "${file}.ori exists."
 fi
 
-cat ${file}.ori ${config} > ${file}
+cp -p ${file}.ori ${file}
+echo "" >> ${file}
+echo "# repsodi" >> ${file}
+echo "source ${config}" >> ${file}
 echo "${file} has been generated."
 ls -la ${file}*
