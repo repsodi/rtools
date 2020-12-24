@@ -11,7 +11,6 @@ export LC_ADDRESS=en_US.UTF-8
 export LC_TELEPHONE=en_US.UTF-8
 export LC_MEASUREMENT=en_US.UTF-8
 export LC_IDENTIFICATION=en_US.UTF-8
-
 export PATH=~/opt/rtools/bin:~/opt/rtools/bin/ubuntu:$PATH
 
 case $(cat /etc/hostname 2> /dev/null) in
@@ -23,5 +22,3 @@ case $(cat /etc/hostname 2> /dev/null) in
     *)
         ;;
 esac
-
-umask 022
