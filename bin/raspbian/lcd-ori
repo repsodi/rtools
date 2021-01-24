@@ -4,7 +4,7 @@
 
 # Display
 sudo cp ~/opt/rtools/conf/${os_name}/lcd/cmdline.txt.ori /boot/cmdline.txt
-sudo cp ~/opt/rtools/conf/${os_name}/lcd/lcd/config.txt.ori /boot/config.txt
+sudo cp ~/opt/rtools/conf/${os_name}/lcd/config.txt.ori /boot/config.txt
 sudo cp ~/opt/rtools/conf/${os_name}/lcd/console-setup.ori /etc/default/console-setup
 sudo cp ~/opt/rtools/conf/${os_name}/lcd/modules.ori /etc/modules
 
