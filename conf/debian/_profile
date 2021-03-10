@@ -1,1 +1,3 @@
 export PATH=~/opt/rtools/bin:~/opt/rtools/bin/debian:$PATH
+
+export _PROFILE_LOADED_=1

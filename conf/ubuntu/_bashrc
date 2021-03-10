@@ -9,3 +9,5 @@ case $(cat /etc/hostname 2> /dev/null) in
     *)
         ;;
 esac
+
+export _BASHRC_LOADED_=1

@@ -22,3 +22,5 @@ case $(cat /etc/hostname 2> /dev/null) in
     *)
         ;;
 esac
+
+export _PROFILE_LOADED_=1
