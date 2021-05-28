@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find . -name .git -type d -exec sh -c 'cd "{}" && chmod 644 index' \;
