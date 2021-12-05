@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ "${1}" = "" ] || [ "${2}" = "" ] || [ "${3}" = "" ]; then
+    echo "3 args are required."
+    exit
+fi
+
+. ~/opt/rtools/conf/ubuntu/_profile
+. ~/opt/rtools/conf/ubuntu/_bashrc
+
+set-usergroups-enab
+set-locale
+set-profile
+set-bashrc
+set-gitconfig ${1} ${2}
+set-smb ${3}

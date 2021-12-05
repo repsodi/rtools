@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ "${1}" = "" ] || [ "${2}" = "" ] || [ "${3}" = "" ]; then
+    echo "3 args are required."
+    exit
+fi
+
+. ~/opt/rtools/conf/raspbian/_profile
+. ~/opt/rtools/conf/raspbian/_bashrc
+
+set-profile
+set-bashrc
+set-gitconfig ${1} ${2}
+set-smb ${3}
+set-wifi

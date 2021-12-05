@@ -1,0 +1,15 @@
+#!/bin/sh
+
+file=${HOME}/.gitconfig
+
+if [ "${1}" = "" ] || [ "${2}" = "" ]; then
+    echo "Name and email are required."
+    exit
+fi
+
+git config --global user.name "${1}"
+git config --global user.email "${2}"
+git config --global core.editor vim
+git config --global merge.tool vimdiff
+echo "${file} has been generated."
+ls -la ${file}

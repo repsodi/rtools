@@ -2,7 +2,7 @@
 
 . $(dirname $0)/../detect-os
 
-file=/etc/default/locale
+file=/etc/login.defs
 
 if [ ! -f ${file}.ori ]; then
     echo "Creating ${file}.ori..."
@@ -11,8 +11,7 @@ else
     echo "${file}.ori exists."
 fi
 
-sudo rm ${file}
-sudo update-locale LANG=en_US.UTF-8
+sudo cp -p ${file}.ori ${file}
+sudo sed -i 's/USERGROUPS_ENAB yes/USERGROUPS_ENAB no/g' ${file}
 echo "${file} has been generated."
 ls -la ${file}*
-# cat ${file}
