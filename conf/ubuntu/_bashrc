@@ -8,4 +8,9 @@ case $(cat /etc/hostname 2> /dev/null) in
         ;;
 esac
 
+# Rust
+if [ -d "$HOME/.cargo" ]; then
+    . "$HOME/.cargo/env"
+fi
+
 export _BASHRC_LOADED_=1

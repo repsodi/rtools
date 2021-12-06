@@ -1,3 +1,8 @@
 export PATH=~/opt/rtools/bin:~/opt/rtools/bin/raspbian:$PATH
 
+# Rust
+if [ -d "$HOME/.cargo" ]; then
+    . "$HOME/.cargo/env"
+fi
+
 export _BASHRC_LOADED_=1

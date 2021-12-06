@@ -1,3 +1,6 @@
-# Nothing
+# Rust
+if [ -d "$HOME/.cargo" ]; then
+    . "$HOME/.cargo/env"
+fi
 
 export _PROFILE_LOADED_=1

@@ -5,6 +5,11 @@
 file=/etc/samba/smb.conf
 config=${HOME}/opt/rtools/conf/${os_name}/smb.conf
 
+if [ ! -f ${file} ]; then
+    echo "Samba is not installed."
+    exit
+fi
+
 if [ "${1}" = "" ]; then
     echo "Username is required."
     exit

@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "${1}" = "" ] || [ "${2}" = "" ] || [ "${3}" = "" ]; then
     echo "3 args are required."
     exit
 fi
 
-. ~/opt/rtools/conf/ubuntu/_profile
-. ~/opt/rtools/conf/ubuntu/_bashrc
+. $(dirname $0)/../../conf/ubuntu/_profile
+. $(dirname $0)/../../conf/ubuntu/_bashrc
 
 set-usergroups-enab
 set-locale
