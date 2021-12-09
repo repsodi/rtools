@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. $(dirname $0)/detect-os
+
 file=${HOME}/.gitconfig
 
 if [ "${1}" = "" ] || [ "${2}" = "" ]; then
@@ -11,5 +13,8 @@ git config --global user.name "${1}"
 git config --global user.email "${2}"
 git config --global core.editor vim
 git config --global merge.tool vimdiff
+if [ ${os_conf} = "raspbian11" ]; then
+    git config --global pull.rebase false
+fi
 echo "${file} has been generated."
 ls -la ${file}
