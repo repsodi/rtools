@@ -1,0 +1,10 @@
+# Nothing
+
+case $TERM in
+    xterm*)
+        bindkey '^[[H' beginning-of-line
+        bindkey '^[[F' end-of-line
+        ;;
+esac
+
+export _ZSHRC_LOADED_=1

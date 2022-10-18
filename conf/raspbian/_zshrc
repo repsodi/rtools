@@ -1,0 +1,15 @@
+export PATH=~/opt/rtools/bin:~/opt/rtools/bin/raspbian:$PATH
+
+case $TERM in
+    xterm*)
+        bindkey '^[[H' beginning-of-line
+        bindkey '^[[F' end-of-line
+        ;;
+esac
+
+# Rust
+if [ -d "$HOME/.cargo" ]; then
+    . "$HOME/.cargo/env"
+fi
+
+export _ZSHRC_LOADED_=1
