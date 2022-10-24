@@ -7,4 +7,6 @@ case $TERM in
         ;;
 esac
 
+unset LESS
+
 export _ZSHRC_LOADED_=1
