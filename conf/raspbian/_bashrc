@@ -1,3 +1,14 @@
+case $(cat /etc/hostname 2> /dev/null) in
+    host1)
+        case $(lsb_release -rs 2> /dev/null) in
+            *)
+                ;;
+        esac
+        ;;
+    *)
+        ;;
+esac
+
 export PATH=~/opt/rtools/bin:~/opt/rtools/bin/raspbian:$PATH
 
 # Rust

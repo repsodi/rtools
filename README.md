@@ -1,3 +1,3 @@
 # rtools
 
-This is just private tool collection.
+This is just a collection of private tools.
