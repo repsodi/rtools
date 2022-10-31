@@ -15,19 +15,19 @@ echo "Release:        ${os_rel}"
 echo "Codename:       ${os_code}"
 
 case ${os_id} in
-    Ubuntu)
-        case ${os_code} in
-            *)
-                os_name=ubuntu
-                os_conf=ubuntu
-                ;;
-        esac
-        ;;
     Debian)
         case ${os_code} in
             *)
                 os_name=debian
                 os_conf=debian
+                ;;
+        esac
+        ;;
+    Ubuntu)
+        case ${os_code} in
+            *)
+                os_name=ubuntu
+                os_conf=ubuntu
                 ;;
         esac
         ;;
