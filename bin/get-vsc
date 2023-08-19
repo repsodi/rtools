@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# 2023-08-14
+# 2023-08-20
 
 if [ -z "${1}" ] || [ -z "${2}" ]; then
-    echo "Usage: get-vsc [version] [stable|insider]"
+    echo "Usage: get-vsc [x.y.z|latest] [stable|insider]"
     exit 0
 fi
 
@@ -41,7 +41,9 @@ type=${2}
 
 if [ ${type} == "insider" ]; then
     vsc="${vsc} - Insiders"
-    version="${version}-insider"
+    if [ ${version} != "latest" ]; then
+        version="${version}-insider"
+    fi
 fi
 
 application="${vsc} ${version}"
