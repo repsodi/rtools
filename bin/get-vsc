@@ -19,7 +19,7 @@ download()
         echo "#"
         echo "# Downloading: ${application} ${type} ${profile}"
         echo "#"
-        wget --content-disposition ${url_base}/${version}/${profile}/${type} -P "${application}"
+        wget --content-disposition --no-use-server-timestamps ${url_base}/${version}/${profile}/${type} -P "${application}"
     done
 }
 
