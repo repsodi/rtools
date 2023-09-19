@@ -5,11 +5,10 @@ if [ "${1}" = "" ] || [ "${2}" = "" ] || [ "${3}" = "" ]; then
     exit
 fi
 
-. $(dirname $0)/../../conf/raspbian/_profile
-. $(dirname $0)/../../conf/raspbian/_bashrc
+. $(dirname $0)/../../conf/ubuntu/_profile
+. $(dirname $0)/../../conf/ubuntu/_bashrc
 
 set-profile
 set-bashrc
 set-gitconfig ${1} ${2}
 set-smb ${3}
-set-wifi
