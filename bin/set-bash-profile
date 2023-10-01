@@ -1,0 +1,23 @@
+#!/bin/sh
+
+. $(dirname $0)/detect-os
+
+file=${HOME}/.bash_profile
+config=${HOME}/opt/rtools/conf/${os_name}/_bash_profile
+
+if [ ! -f ${file}.ori ]; then
+    echo "Creating ${file}.ori..."
+    if [ ! -f ${file} ]; then
+        touch ${file}
+    fi
+    cp -p ${file} ${file}.ori
+else
+    echo "${file}.ori exists."
+fi
+
+cp -p ${file}.ori ${file}
+echo "" >> ${file}
+echo "# repsodi" >> ${file}
+echo "source ${config}" >> ${file}
+echo "${file} has been generated."
+ls -la ${file}*

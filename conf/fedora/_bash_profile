@@ -6,9 +6,11 @@ case $(cat /etc/hostname 2> /dev/null) in
             *)
                 ;;
         esac
-        export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+        export PS1="[\u@\h \W]\$ "
+        export PATH=~/opt/rtools/bin:~/opt/rtools/bin/fedora:$PATH
         ;;
     *)
+        export PATH=~/opt/rtools/bin:~/opt/rtools/bin/fedora:$PATH
         ;;
 esac
 
@@ -17,4 +19,4 @@ if [ -d "$HOME/.cargo" ]; then
     . "$HOME/.cargo/env"
 fi
 
-export _BASHRC_LOADED_=1
+export _BASH_PROFILE_LOADED_=1

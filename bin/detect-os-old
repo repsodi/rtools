@@ -1,46 +1,38 @@
 #!/bin/bash
 
-os_id=$(cat /etc/os-release | grep -w ID 2> /dev/null)
-os_id=${os_id:3}
-os_pname=$(cat /etc/os-release | grep -w PRETTY_NAME 2> /dev/null)
-os_pname=${os_pname:12}
-os_version=$(cat /etc/os-release | grep -w VERSION_ID 2> /dev/null)
-os_version=${os_version:11}
-os_codename=$(cat /etc/os-release | grep -w VERSION_CODENAME 2> /dev/null)
-os_codename=${os_codename:17}
+os_id=$(lsb_release -is 2> /dev/null)
+if [ $? != 127 ]; then
+    os_desc=$(lsb_release -ds 2> /dev/null)
+    os_rel=$(lsb_release -rs 2> /dev/null)
+    os_code=$(lsb_release -cs 2> /dev/null)
+else
+    os_id=$(uname -o 2> /dev/null)
+fi
 
-echo "ID:            ${os_id}"
-echo "Name:          ${os_pname}"
-echo "Version:       ${os_version}"
-echo "Codename:      ${os_codename}"
+echo "Distributor ID: ${os_id}"
+echo "Description:    ${os_desc}"
+echo "Release:        ${os_rel}"
+echo "Codename:       ${os_code}"
 
 case ${os_id} in
-    debian)
-        case ${os_codename} in
+    Debian)
+        case ${os_code} in
             *)
                 os_name=debian
                 os_conf=debian
                 ;;
         esac
         ;;
-    ubuntu)
-        case ${os_codename} in
+    Ubuntu)
+        case ${os_code} in
             *)
                 os_name=ubuntu
                 os_conf=ubuntu
                 ;;
         esac
         ;;
-    fedora)
-        case ${os_version} in
-            *)
-                os_name=fedora
-                os_conf=fedora
-                ;;
-        esac
-        ;;
-    raspbian)
-        case ${os_codename} in
+    Raspbian)
+        case ${os_code} in
             jessie)
                 os_name=raspbian
                 os_conf=raspbian8
@@ -64,9 +56,8 @@ case ${os_id} in
         esac
         ;;
     *)
-        os_name=""
         os_conf=""
         ;;
 esac
 
-echo "Name / Config: ${os_name} / ${os_conf}"
+echo "Name / Config:  ${os_name} / ${os_conf}"

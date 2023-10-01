@@ -1,6 +1,8 @@
 case $(cat /etc/hostname 2> /dev/null) in
     host1)
-        case $(lsb_release -rs 2> /dev/null) in
+        version_id=$(cat /etc/os-release | grep VERSION_ID 2> /dev/null)
+        version_id=${version_id:11}
+        case ${version_id} in
             *)
                 ;;
         esac

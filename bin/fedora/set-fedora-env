@@ -5,10 +5,10 @@ if [ "${1}" = "" ] || [ "${2}" = "" ] || [ "${3}" = "" ]; then
     exit
 fi
 
-. $(dirname $0)/../../conf/debian/_profile
-. $(dirname $0)/../../conf/debian/_bashrc
+. $(dirname $0)/../../conf/fedora/_bash_profile
+. $(dirname $0)/../../conf/fedora/_bashrc
 
-set-profile
+set-bash-profile
 set-bashrc
 set-gitconfig ${1} ${2}
 set-smb ${3}
