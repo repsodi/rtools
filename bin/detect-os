@@ -1,13 +1,24 @@
 #!/bin/bash
 
-os_id=$(cat /etc/os-release | grep -w ID 2> /dev/null)
-os_id=${os_id:3}
-os_pname=$(cat /etc/os-release | grep -w PRETTY_NAME 2> /dev/null)
-os_pname=${os_pname:12}
-os_version=$(cat /etc/os-release | grep -w VERSION_ID 2> /dev/null)
-os_version=${os_version:11}
-os_codename=$(cat /etc/os-release | grep -w VERSION_CODENAME 2> /dev/null)
-os_codename=${os_codename:17}
+. /etc/os-release
+
+ret=
+
+removeQuotes() {
+    temp=$1
+    temp="${temp%\"}"
+    temp="${temp#\"}"
+    ret="${temp}"
+}
+
+removeQuotes "$ID"
+os_id=$ret
+removeQuotes "$PRETTY_NAME"
+os_pname=$ret
+removeQuotes "$VERSION_ID"
+os_version=$ret
+removeQuotes "$VERSION_CODENAME"
+os_codename=$ret
 
 echo "ID:            ${os_id}"
 echo "Name:          ${os_pname}"
@@ -16,7 +27,7 @@ echo "Codename:      ${os_codename}"
 
 case ${os_id} in
     debian)
-        case ${os_codename} in
+        case ${os_version} in
             *)
                 os_name=debian
                 os_conf=debian
@@ -24,7 +35,7 @@ case ${os_id} in
         esac
         ;;
     ubuntu)
-        case ${os_codename} in
+        case ${os_version} in
             *)
                 os_name=ubuntu
                 os_conf=ubuntu
@@ -40,22 +51,22 @@ case ${os_id} in
         esac
         ;;
     raspbian)
-        case ${os_codename} in
-            jessie)
+        case ${os_version} in
+            8)
                 os_name=raspbian
-                os_conf=raspbian8
+                os_conf=raspbian-8
                 ;;
-            stretch)
+            9)
                 os_name=raspbian
-                os_conf=raspbian9
+                os_conf=raspbian-9
                 ;;
-            buster)
+            10)
                 os_name=raspbian
-                os_conf=raspbian10
+                os_conf=raspbian-10
                 ;;
-            bullseye)
+            11)
                 os_name=raspbian
-                os_conf=raspbian11
+                os_conf=raspbian-11
                 ;;
             *)
                 os_name=raspbian

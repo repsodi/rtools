@@ -1,8 +1,8 @@
-case $(cat /etc/hostname 2> /dev/null) in
+. ${HOME}/opt/rtools/bin/detect-os > /dev/null
+
+case $(hostname) in
     host1)
-        version_id=$(cat /etc/os-release | grep VERSION_ID 2> /dev/null)
-        version_id=${version_id:11}
-        case ${version_id} in
+        case ${os_version} in
             *)
                 ;;
         esac
@@ -10,8 +10,6 @@ case $(cat /etc/hostname 2> /dev/null) in
     *)
         ;;
 esac
-
-export PATH=~/opt/rtools/bin:~/opt/rtools/bin/raspbian:$PATH
 
 # Zsh
 case $TERM in

@@ -1,12 +1,11 @@
-case $(cat /etc/hostname 2> /dev/null) in
+. ${HOME}/opt/rtools/bin/detect-os > /dev/null
+
+case $(hostname) in
     host1)
-        version_id=$(cat /etc/os-release | grep VERSION_ID 2> /dev/null)
-        version_id=${version_id:11}
-        case ${version_id} in
+        case ${os_version} in
             *)
                 ;;
         esac
-        export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
         ;;
     *)
         ;;
