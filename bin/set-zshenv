@@ -2,9 +2,9 @@
 
 . $(dirname $0)/detect-os
 
-file=${HOME}/.bashrc
-config=${HOME}/opt/rtools/conf/${os_name}/_bashrc
-xtra_config=${HOME}/xtra/rtools/conf/${os_name}/_bashrc
+file=${HOME}/.zshenv
+config=${HOME}/opt/rtools/conf/${os_name}/_zshenv
+xtra_config=${HOME}/xtra/rtools/conf/${os_name}/_zshenv
 
 if [ ! -f ${file}.ori ]; then
     echo "Creating ${file}.ori..."
@@ -17,7 +17,7 @@ else
 fi
 
 cp -p ${file}.ori ${file}
-echo "" >> ${file}
+# echo "" >> ${file}
 echo "# repsodi" >> ${file}
 echo "source ${config}" >> ${file}
 echo "if [ -f ${xtra_config} ]; then" >> ${file}

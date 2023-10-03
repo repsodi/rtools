@@ -1,21 +1,19 @@
 . ${HOME}/opt/rtools/bin/detect-os > /dev/null
 
-case $(hostname) in
-    host1)
-        case ${os_version} in
+case ${os_version} in
+    *)
+        case $(hostname) in
             *)
                 ;;
         esac
         ;;
-    *)
-        ;;
 esac
 
-export PATH=~/opt/rtools/bin/fedora:~/opt/rtools/bin:$PATH
+export PATH=~/opt/rtools/bin/${os_name}:~/opt/rtools/bin:$PATH
 
 # Rust
 if [ -d "$HOME/.cargo" ]; then
     . "$HOME/.cargo/env"
 fi
 
-export _BASH_PROFILE_LOADED_=1
+export _LOADED_BASH_PROFILE_=1

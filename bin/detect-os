@@ -27,56 +27,52 @@ echo "Codename:      ${os_codename}"
 
 case ${os_id} in
     debian)
+        os_name=debian
         case ${os_version} in
             *)
-                os_name=debian
                 os_conf=debian
                 ;;
         esac
         ;;
     ubuntu)
+        os_name=ubuntu
         case ${os_version} in
             *)
-                os_name=ubuntu
                 os_conf=ubuntu
                 ;;
         esac
         ;;
     fedora)
+        os_name=fedora
         case ${os_version} in
             *)
-                os_name=fedora
                 os_conf=fedora
                 ;;
         esac
         ;;
     raspbian)
+        os_name=raspbian
         case ${os_version} in
             8)
-                os_name=raspbian
                 os_conf=raspbian-8
                 ;;
             9)
-                os_name=raspbian
                 os_conf=raspbian-9
                 ;;
             10)
-                os_name=raspbian
                 os_conf=raspbian-10
                 ;;
             11)
-                os_name=raspbian
                 os_conf=raspbian-11
                 ;;
             *)
-                os_name=raspbian
                 os_conf=raspbian
                 ;;
         esac
         ;;
     *)
-        os_name=""
-        os_conf=""
+        os_name=linux
+        os_conf=linux
         ;;
 esac
 

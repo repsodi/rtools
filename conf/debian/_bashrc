@@ -1,13 +1,11 @@
 . ${HOME}/opt/rtools/bin/detect-os > /dev/null
 
-case $(hostname) in
-    host1)
-        case ${os_version} in
+case ${os_version} in
+    *)
+        case $(hostname) in
             *)
                 ;;
         esac
-        ;;
-    *)
         ;;
 esac
 
@@ -16,4 +14,4 @@ if [ -d "$HOME/.cargo" ]; then
     . "$HOME/.cargo/env"
 fi
 
-export _BASHRC_LOADED_=1
+export _LOADED_BASHRC_=1

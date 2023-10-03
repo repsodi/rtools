@@ -1,28 +1,17 @@
 . ${HOME}/opt/rtools/bin/detect-os > /dev/null
 
-case $(hostname) in
-    host1)
-        case ${os_version} in
+case ${os_version} in
+    *)
+        case $(hostname) in
             *)
                 ;;
         esac
         ;;
-    *)
-        ;;
 esac
-
-# Zsh
-case $TERM in
-    xterm*)
-        bindkey '^[[H' beginning-of-line
-        bindkey '^[[F' end-of-line
-        ;;
-esac
-unset LESS
 
 # Rust
 if [ -d "$HOME/.cargo" ]; then
     . "$HOME/.cargo/env"
 fi
 
-export _ZSHRC_LOADED_=1
+export _LOADED_ZSHRC_=1

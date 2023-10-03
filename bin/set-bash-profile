@@ -4,6 +4,7 @@
 
 file=${HOME}/.bash_profile
 config=${HOME}/opt/rtools/conf/${os_name}/_bash_profile
+xtra_config=${HOME}/xtra/rtools/conf/${os_name}/_bash_profile
 
 if [ ! -f ${file}.ori ]; then
     echo "Creating ${file}.ori..."
@@ -19,5 +20,8 @@ cp -p ${file}.ori ${file}
 echo "" >> ${file}
 echo "# repsodi" >> ${file}
 echo "source ${config}" >> ${file}
+echo "if [ -f ${xtra_config} ]; then" >> ${file}
+echo "    source ${xtra_config}" >> ${file}
+echo "fi" >> ${file}
 echo "${file} has been generated."
 ls -la ${file}*
