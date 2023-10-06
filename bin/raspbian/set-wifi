@@ -2,24 +2,9 @@
 
 . $(dirname $0)/../detect-os
 
-if [ ${os_conf} = "raspbian-8" ]; then
-    file1=/etc/modprobe.d/raspi-blacklist.conf
-    config1=${HOME}/opt/rtools/conf/${os_name}/raspi-blacklist.conf
-elif [ ${os_conf} = "raspbian-9" ]; then
-    file1=/etc/modprobe.d/raspi-blacklist.conf
-    config1=${HOME}/opt/rtools/conf/${os_name}/raspi-blacklist.conf
-else
-    file1=/boot/config.txt
-    config1=${HOME}/opt/rtools/conf/${os_name}/config.txt
-fi
+file1=/boot/config.txt
 
 file2=/etc/modprobe.d/8192cu.conf
-config2=${HOME}/opt/rtools/conf/${os_name}/8192cu.conf
-
-if [ ${os_conf} = "raspbian-8" ]; then
-    file3=/etc/network/interfaces
-    config3=${HOME}/opt/rtools/conf/${os_name}/network-interfaces
-fi
 
 file4=/etc/wpa_supplicant/wpa_supplicant.conf
 config4=${HOME}/opt/rtools/conf/${os_name}/wpa_supplicant.conf
@@ -30,28 +15,17 @@ if [ ! -f ${file1}.ori ]; then
 else
     echo "${file1}.ori exists."
 fi
-echo "cat ${file1}.ori ${config1} > ${file1}" | sudo -Es
+sudo cp -p ${file1}.ori ${file1}
+echo "echo >> ${file1}" | sudo -Es
+echo "echo # Disable WiFi >> ${file1}" | sudo -Es
+echo "echo #dtoverlay=pi3-disable-wifi >> ${file1}" | sudo -Es
 sudo vim ${file1}
 echo "${file1} has been generated."
 sleep 5
 
-echo "cat ${config2} > ${file2}" | sudo -Es
-sudo vim ${file2}
+echo "echo options 8192cu rtw_power_mgnt=0 > ${file2}" | sudo -Es
 echo "${file2} has been generated."
 sleep 5
-
-if [ ${os_conf} = "raspbian-8" ]; then
-    if [ ! -f ${file3}.ori ]; then
-        echo "Creating ${file3}.ori..."
-        sudo cp -p ${file3} ${file3}.ori
-    else
-        echo "${file3}.ori exists."
-    fi
-    echo "cat ${file3}.ori ${config3} > ${file3}" | sudo -Es
-    sudo vim ${file3}
-    echo "${file3} has been generated."
-    sleep 5
-fi
 
 if [ ! -f ${file4}.ori ]; then
     echo "Creating ${file4}.ori..."
@@ -66,16 +40,4 @@ sleep 5
 
 ls -l ${file1}*
 ls -l ${file2}*
-if [ ${os_conf} = "raspbian-8" ]; then
-    ls -l ${file3}*
-fi
 ls -l ${file4}*
-
-if [ ${os_conf} = "raspbian-8" ]; then
-    echo "Restart wlan0..."
-    sudo ifdown wlan0
-    sudo ifup wlan0
-    echo "Restart wlan1..."
-    sudo ifdown wlan1
-    sudo ifup wlan1
-fi

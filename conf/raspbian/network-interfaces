@@ -1,4 +1,0 @@
-
-    # To move
-    post-up iwconfig wlan0 power off
-    post-up iwconfig wlan1 power off
