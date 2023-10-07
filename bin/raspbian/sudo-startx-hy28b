@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sudo FRAMEBUFFER=/dev/fb1 startx -- -dpi 60

@@ -4,5 +4,5 @@ sudo sed -i 's/overscan_left=1/#overscan_left=16/g' /boot/config.txt
 sudo sed -i 's/overscan_right=1/#overscan_right=16/g' /boot/config.txt
 sudo sed -i 's/hdmi_group=2/#hdmi_group=1/g' /boot/config.txt
 sudo sed -i 's/hdmi_mode=87/#hdmi_mode=1/g' /boot/config.txt
-echo "cat /boot/config.txt | tr '\n' '\r' | sed -e 's/hdmi_drive=2\r\rhdmi_cvt=800 480 60 6/#hdmi_drive=2/' | tr '\r' '\n' > /boot/config.txt.tmp" | sudo -Es
+sudo sh -c "cat /boot/config.txt | tr '\n' '\r' | sed -e 's/hdmi_drive=2\r\rhdmi_cvt=800 480 60 6/#hdmi_drive=2/' | tr '\r' '\n' > /boot/config.txt.tmp"
 sudo mv /boot/config.txt.tmp /boot/config.txt

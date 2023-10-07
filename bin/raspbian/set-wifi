@@ -6,8 +6,9 @@ file1=/boot/config.txt
 
 file2=/etc/modprobe.d/8192cu.conf
 
-file4=/etc/wpa_supplicant/wpa_supplicant.conf
-config4=${HOME}/opt/rtools/conf/${os_name}/wpa_supplicant.conf
+file3=/etc/wpa_supplicant/wpa_supplicant.conf
+config3=${HOME}/opt/rtools/conf/${os_name}/wpa_supplicant.conf
+psk=$1
 
 if [ ! -f ${file1}.ori ]; then
     echo "Creating ${file1}.ori..."
@@ -16,28 +17,30 @@ else
     echo "${file1}.ori exists."
 fi
 sudo cp -p ${file1}.ori ${file1}
-echo "echo >> ${file1}" | sudo -Es
-echo "echo # Disable WiFi >> ${file1}" | sudo -Es
-echo "echo #dtoverlay=pi3-disable-wifi >> ${file1}" | sudo -Es
+sudo sh -c "echo >> ${file1}"
+sudo sh -c "echo # Disable WiFi >> ${file1}"
+sudo sh -c "echo #dtoverlay=pi3-disable-wifi >> ${file1}"
 sudo vim ${file1}
 echo "${file1} has been generated."
 sleep 5
 
-echo "echo options 8192cu rtw_power_mgnt=0 > ${file2}" | sudo -Es
+sudo sh -c "echo options 8192cu rtw_power_mgnt=0 > ${file2}"
 echo "${file2} has been generated."
 sleep 5
 
-if [ ! -f ${file4}.ori ]; then
-    echo "Creating ${file4}.ori..."
-    sudo cp -p ${file4} ${file4}.ori
+if [ ! -f ${file3}.ori ]; then
+    echo "Creating ${file3}.ori..."
+    sudo cp -p ${file3} ${file3}.ori
 else
-    echo "${file4}.ori exists."
+    echo "${file3}.ori exists."
 fi
-echo "cat ${file4}.ori ${config4} > ${file4}" | sudo -Es
-sudo vim ${file4}
-echo "${file4} has been generated."
+sudo sh -c "cat ${file3}.ori ${config3} > ${file3}"
+if [ ! -z $psk ]; then
+    sudo sed -i "s/\*\*\*\*\*\*\*\*/$psk/g" ${file3}
+fi
+echo "${file3} has been generated."
 sleep 5
 
 ls -l ${file1}*
 ls -l ${file2}*
-ls -l ${file4}*
+ls -l ${file3}*
