@@ -12,6 +12,7 @@ fi
 git config --global user.name "${1}"
 git config --global user.email "${2}"
 git config --global core.editor vim
+git config --global core.pager "less -F -X"
 git config --global merge.tool vimdiff
 git config --global pull.rebase false
 echo "${file} has been generated."
