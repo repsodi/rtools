@@ -28,11 +28,10 @@ export PATH=~/opt/rtools/bin/${os_name}:~/opt/rtools/bin:$PATH
 # Zsh
 case $TERM in
     xterm*)
-        bindkey '^[[H' beginning-of-line
-        bindkey '^[[F' end-of-line
+        bindkey "^[[H" beginning-of-line
+        bindkey "^[[F" end-of-line
         ;;
 esac
-unset LESS
 
 # Rust
 if [ -d "$HOME/.cargo" ]; then

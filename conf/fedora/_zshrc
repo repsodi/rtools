@@ -9,6 +9,10 @@ case ${os_version} in
         ;;
 esac
 
+# Oh-My-Zsh
+unset PAGER
+unset LESS
+
 # Rust
 if [ -d "$HOME/.cargo" ]; then
     . "$HOME/.cargo/env"

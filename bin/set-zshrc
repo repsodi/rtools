@@ -17,6 +17,7 @@ else
 fi
 
 cp -p ${file}.ori ${file}
+sed -i 's/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"risto\"/g' ${file}
 echo "" >> ${file}
 echo "# repsodi" >> ${file}
 echo "source ${config}" >> ${file}
