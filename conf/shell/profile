@@ -1,0 +1,47 @@
+. ${HOME}/opt/rtools/bin/var > /dev/null
+
+case ${os_conf} in
+    ubuntu)
+        export LANG=en_US.UTF-8
+        export LC_CTYPE=en_US.UTF-8
+        export LC_NUMERIC=en_US.UTF-8
+        export LC_TIME=en_US.UTF-8
+        export LC_COLLATE=en_US.UTF-8
+        export LC_MONETARY=en_US.UTF-8
+        export LC_MESSAGES=en_US.UTF-8
+        export LC_PAPER=en_US.UTF-8
+        export LC_NAME=en_US.UTF-8
+        export LC_ADDRESS=en_US.UTF-8
+        export LC_TELEPHONE=en_US.UTF-8
+        export LC_MEASUREMENT=en_US.UTF-8
+        export LC_IDENTIFICATION=en_US.UTF-8
+        ;;
+    *)
+        ;;
+esac
+
+case $(hostname) in
+    *)
+        ;;
+esac
+
+export PATH=~/opt/${tool_name}/bin/${os_name}:~/opt/${tool_name}/bin:$PATH
+
+if [ "${shell_name}" = "zsh" ]; then
+    # Zsh
+    case $TERM in
+        xterm*)
+            bindkey "^[[H" beginning-of-line
+            bindkey "^[[F" end-of-line
+            ;;
+    esac
+
+    export _LOADED_PROFILE_ZSH=1
+fi
+
+# Rust
+if [ -d "$HOME/.cargo" ]; then
+    . "$HOME/.cargo/env"
+fi
+
+export _LOADED_PROFILE=1

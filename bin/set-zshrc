@@ -1,10 +1,10 @@
 #!/bin/sh
 
-. $(dirname $0)/detect-os
+. $(dirname $0)/var
 
 file=${HOME}/.zshrc
-config=${HOME}/opt/rtools/conf/${os_name}/_zshrc
-xtra_config=${HOME}/xtra/rtools/conf/${os_name}/_zshrc
+config=${HOME}/opt/${tool_name}/conf/shell/rc
+xtra_config=${HOME}/xtra/${tool_name}/conf/shell/rc
 
 if [ ! -f ${file}.ori ]; then
     echo "Creating ${file}.ori..."

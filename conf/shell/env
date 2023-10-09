@@ -1,0 +1,12 @@
+. ${HOME}/opt/rtools/bin/var > /dev/null
+
+if [ "${shell_name}" = "zsh" ]; then
+    # Rust
+    if [ -d "$HOME/.cargo" ]; then
+        . "$HOME/.cargo/env"
+    fi
+
+    export _LOADED_ENV_ZSH=1
+fi
+
+export _LOADED_ENV=1

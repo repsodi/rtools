@@ -1,9 +1,9 @@
 #!/bin/sh
 
-. $(dirname $0)/detect-os
+. $(dirname $0)/var
 
 file=/etc/samba/smb.conf
-config=${HOME}/opt/rtools/conf/${os_name}/smb.conf
+config=${HOME}/opt/${tool_name}/conf/samba/smb.conf
 
 if [ ! -f ${file} ]; then
     echo "Samba is not installed."

@@ -5,12 +5,17 @@ if [ "${1}" = "" ] || [ "${2}" = "" ] || [ "${3}" = "" ]; then
     exit
 fi
 
-. $(dirname $0)/../../conf/ubuntu/_profile
-. $(dirname $0)/../../conf/ubuntu/_bashrc
+. $(dirname $0)/../../conf/shell/profile
+. $(dirname $0)/../../conf/shell/rc
 
 set-usergroups-enab
+echo
 set-locale
+echo
 set-profile
+echo
 set-bashrc
+echo
 set-gitconfig ${1} ${2}
+echo
 set-smb ${3}

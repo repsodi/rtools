@@ -11,6 +11,8 @@ removeQuotes() {
     ret="${temp}"
 }
 
+tool_name=rtools
+
 removeQuotes "$ID"
 os_id=$ret
 removeQuotes "$PRETTY_NAME"
@@ -20,8 +22,8 @@ os_version=$ret
 removeQuotes "$VERSION_CODENAME"
 os_codename=$ret
 
-echo "ID:            ${os_id}"
 echo "Name:          ${os_pname}"
+echo "ID:            ${os_id}"
 echo "Version:       ${os_version}"
 echo "Codename:      ${os_codename}"
 
@@ -71,3 +73,23 @@ case ${os_id} in
 esac
 
 echo "Name / Config: ${os_name} / ${os_conf}"
+
+case ${SHELL} in
+    /bin/bash)
+        shell_name=bash
+        ;;
+    /usr/bin/bash)
+        shell_name=bash
+        ;;
+    /bin/zsh)
+        shell_name=zsh
+        ;;
+    /usr/bin/zsh)
+        shell_name=zsh
+        ;;
+    *)
+        shell_name=sh
+        ;;
+esac
+
+echo "Shell:         ${shell_name}"

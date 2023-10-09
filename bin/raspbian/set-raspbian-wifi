@@ -1,13 +1,13 @@
 #!/bin/sh
 
-. $(dirname $0)/../detect-os
+. $(dirname $0)/../var
 
 file1=/boot/config.txt
 
 file2=/etc/modprobe.d/8192cu.conf
 
 file3=/etc/wpa_supplicant/wpa_supplicant.conf
-config3=${HOME}/opt/rtools/conf/${os_name}/wpa_supplicant.conf
+config3=${HOME}/opt/${tool_name}/conf/${os_name}/wpa_supplicant.conf
 psk=$1
 
 if [ ! -f ${file1}.ori ]; then

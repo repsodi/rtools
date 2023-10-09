@@ -1,6 +1,0 @@
-# Rust
-if [ -d "$HOME/.cargo" ]; then
-    . "$HOME/.cargo/env"
-fi
-
-export _LOADED_ZSHENV_=1
