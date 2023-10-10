@@ -1,4 +1,4 @@
-. ${HOME}/opt/rtools/bin/var > /dev/null
+. $(dirname $0)/../../bin/env.conf > /dev/null
 
 case ${os_version} in
     *)

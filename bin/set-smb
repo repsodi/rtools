@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. $(dirname $0)/var
+. $(dirname $0)/env.conf > /dev/null
 
 file=/etc/samba/smb.conf
 config=${HOME}/opt/${tool_name}/conf/samba/smb.conf
@@ -10,8 +10,8 @@ if [ ! -f ${file} ]; then
     exit
 fi
 
-if [ "${1}" = "" ]; then
-    echo "Username is required."
+if [ -z "${1}" ]; then
+    echo "Usage: $(basename $0) <username>"
     exit
 fi
 

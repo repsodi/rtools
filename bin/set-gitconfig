@@ -1,11 +1,11 @@
 #!/bin/sh
 
-. $(dirname $0)/var
+. $(dirname $0)/env.conf > /dev/null
 
 file=${HOME}/.gitconfig
 
-if [ "${1}" = "" ] || [ "${2}" = "" ]; then
-    echo "Name and email are required."
+if [ -z "${1}" ] || [ -z "${2}" ]; then
+    echo "Usage: $(basename $0) <username> <email>"
     exit
 fi
 

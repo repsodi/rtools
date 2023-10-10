@@ -1,17 +1,14 @@
 #!/bin/bash
 
-if [ "${1}" = "" ] || [ "${2}" = "" ] || [ "${3}" = "" ]; then
-    echo "3 args are required."
+if [ -z "${1}" ] || [ -z "${2}" ] || [ -z "${3}" ]; then
+    echo "Usage: $(basename $0) <git-username> <git-email> <samba-username>"
     exit
 fi
 
+. $(dirname $0)/../env.conf
 . $(dirname $0)/../../conf/shell/profile
 . $(dirname $0)/../../conf/shell/rc
 
-set-usergroups-enab
-echo
-set-locale
-echo
 set-profile
 echo
 set-bashrc
@@ -19,3 +16,7 @@ echo
 set-gitconfig ${1} ${2}
 echo
 set-smb ${3}
+echo
+set-usergroups-enab
+echo
+set-locale

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. $(dirname $0)/../var
+. $(dirname $0)/../env.conf > /dev/null
 
 file=/etc/default/locale
 
