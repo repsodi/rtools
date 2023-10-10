@@ -8,8 +8,8 @@ fi
 . $(dirname $0)/../env.conf
 echo
 
-. $(dirname $0)/../../conf/shell/profile > /dev/null
-. $(dirname $0)/../../conf/shell/rc > /dev/null
+. $(dirname $0)/../../conf/shell/profile 2> /dev/null
+. $(dirname $0)/../../conf/shell/rc 2> /dev/null
 
 set-profile
 echo
