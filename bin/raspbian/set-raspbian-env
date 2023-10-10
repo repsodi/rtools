@@ -6,10 +6,11 @@ if [ -z "${1}" ] || [ -z "${2}" ] || [ -z "${3}" ] || [ -z "${4}" ]; then
 fi
 
 . $(dirname $0)/../env.conf
-. $(dirname $0)/../../conf/shell/profile
-. $(dirname $0)/../../conf/shell/rc
-
 echo
+
+. $(dirname $0)/../../conf/shell/profile > /dev/null
+. $(dirname $0)/../../conf/shell/rc > /dev/null
+
 set-profile
 echo
 set-bashrc
