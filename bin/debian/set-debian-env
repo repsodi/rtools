@@ -9,6 +9,7 @@ fi
 . $(dirname $0)/../../conf/shell/profile
 . $(dirname $0)/../../conf/shell/rc
 
+echo
 set-profile
 echo
 set-bashrc
