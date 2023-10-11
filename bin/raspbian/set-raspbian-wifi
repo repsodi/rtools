@@ -25,11 +25,11 @@ fi
 
 sudo cp -p ${file1}.ori ${file1}
 sudo sh -c "echo >> ${file1}"
-sudo sh -c "echo # Disable WiFi >> ${file1}"
+sudo sh -c "echo \# Disable WiFi >> ${file1}"
 if [ "${wifi}" = "pi-wifi-disable" ]; then
     sudo sh -c "echo dtoverlay=pi3-disable-wifi >> ${file1}"
 else
-    sudo sh -c "echo # dtoverlay=pi3-disable-wifi >> ${file1}"
+    sudo sh -c "echo \#dtoverlay=pi3-disable-wifi >> ${file1}"
 fi
 echo "${file1} has been generated."
 ls -la ${file1}*
