@@ -3,8 +3,8 @@
 . $(dirname $0)/env.conf > /dev/null
 
 file=${HOME}/.zshenv
-config=${HOME}/opt/${tool_name}/conf/shell/env
-xtra_config=${HOME}/xtra/${tool_name}/conf/shell/env
+config=${HOME}/opt/${tool_dir}/conf/shell/env
+xtra_config=${HOME}/xtra/${tool_dir}/conf/shell/env
 
 if [ ! -f ${file}.ori ]; then
     echo "Creating ${file}.ori..."
@@ -18,7 +18,7 @@ fi
 
 cp -p ${file}.ori ${file}
 # echo "" >> ${file}
-echo "# repsodi" >> ${file}
+echo "# ${tool_name}" >> ${file}
 echo "source ${config}" >> ${file}
 echo "if [ -f ${xtra_config} ]; then" >> ${file}
 echo "    source ${xtra_config}" >> ${file}

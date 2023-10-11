@@ -17,4 +17,4 @@ set-bashrc
 echo
 set-gitconfig ${1} ${2}
 echo
-set-smb ${3}
+set-samba ${3}

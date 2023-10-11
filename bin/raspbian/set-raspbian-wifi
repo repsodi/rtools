@@ -7,8 +7,14 @@ file1=/boot/config.txt
 file2=/etc/modprobe.d/8192cu.conf
 
 file3=/etc/wpa_supplicant/wpa_supplicant.conf
-config3=${HOME}/opt/${tool_name}/conf/${os_name}/wpa_supplicant.conf
-psk=$1
+config3=${HOME}/opt/${tool_dir}/conf/${os_name}/wpa_supplicant.conf
+wifi=$1
+psk=$2
+
+if [ -z "${wifi}" ] || [ -z "${psk}" ]; then
+    echo "Usage: $(basename $0) <pi-wifi-enable|pi-wifi-disable> <wifi-psk>"
+    exit
+fi
 
 if [ ! -f ${file1}.ori ]; then
     echo "Creating ${file1}.ori..."
@@ -16,16 +22,21 @@ if [ ! -f ${file1}.ori ]; then
 else
     echo "${file1}.ori exists."
 fi
+
 sudo cp -p ${file1}.ori ${file1}
 sudo sh -c "echo >> ${file1}"
 sudo sh -c "echo # Disable WiFi >> ${file1}"
-sudo sh -c "echo #dtoverlay=pi3-disable-wifi >> ${file1}"
+if [ "${wifi}" = "pi-wifi-disable" ]; then
+    sudo sh -c "echo dtoverlay=pi3-disable-wifi >> ${file1}"
+else
+    sudo sh -c "echo # dtoverlay=pi3-disable-wifi >> ${file1}"
+fi
 echo "${file1} has been generated."
-sleep 5
+ls -l ${file1}*
 
 sudo sh -c "echo options 8192cu rtw_power_mgnt=0 > ${file2}"
 echo "${file2} has been generated."
-sleep 5
+ls -l ${file2}*
 
 if [ ! -f ${file3}.ori ]; then
     echo "Creating ${file3}.ori..."
@@ -33,13 +44,10 @@ if [ ! -f ${file3}.ori ]; then
 else
     echo "${file3}.ori exists."
 fi
+
 sudo sh -c "cat ${file3}.ori ${config3} > ${file3}"
 if [ ! -z $psk ]; then
     sudo sed -i "s/\*\*\*\*\*\*\*\*/$psk/g" ${file3}
 fi
 echo "${file3} has been generated."
-sleep 5
-
-ls -l ${file1}*
-ls -l ${file2}*
 ls -l ${file3}*

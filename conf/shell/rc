@@ -1,11 +1,12 @@
 . ${HOME}/opt/rtools/bin/env.conf > /dev/null
 
-case ${os_version} in
+case ${os_conf} in
     *)
-        case $(hostname) in
-            *)
-                ;;
-        esac
+        ;;
+esac
+
+case $(hostname) in
+    *)
         ;;
 esac
 
