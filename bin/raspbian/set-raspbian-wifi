@@ -32,11 +32,15 @@ else
     sudo sh -c "echo # dtoverlay=pi3-disable-wifi >> ${file1}"
 fi
 echo "${file1} has been generated."
-ls -l ${file1}*
+ls -la ${file1}*
+
+echo
 
 sudo sh -c "echo options 8192cu rtw_power_mgnt=0 > ${file2}"
 echo "${file2} has been generated."
-ls -l ${file2}*
+ls -la ${file2}*
+
+echo
 
 if [ ! -f ${file3}.ori ]; then
     echo "Creating ${file3}.ori..."
@@ -50,4 +54,4 @@ if [ ! -z $psk ]; then
     sudo sed -i "s/\*\*\*\*\*\*\*\*/$psk/g" ${file3}
 fi
 echo "${file3} has been generated."
-ls -l ${file3}*
+ls -la ${file3}*
