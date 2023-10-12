@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. $(dirname $0)/env.conf > /dev/null
+. $(dirname $0)/base.conf > /dev/null
 
 file=/etc/samba/smb.conf
 username=$1

@@ -1,4 +1,4 @@
-. ${HOME}/opt/rtools/bin/env.conf > /dev/null
+. ${HOME}/opt/rtools/bin/base.conf > /dev/null
 
 case ${os_conf} in
     ubuntu)

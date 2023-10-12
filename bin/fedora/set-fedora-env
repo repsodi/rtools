@@ -5,7 +5,7 @@ if [ -z "${1}" ] || [ -z "${2}" ] || [ -z "${3}" ]; then
     exit
 fi
 
-. $(dirname $0)/../env.conf
+. $(dirname $0)/../base.conf
 echo
 
 . $(dirname $0)/../../conf/shell/profile 2> /dev/null
