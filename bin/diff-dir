@@ -1,9 +1,9 @@
 #!/bin/sh
 
-DIR=$1
-TMPDIR=~/xtra/tmp/diff-dir
+dir=$1
+tmpdir=~/xtra/tmp/diff-dir
 
-mkdir -p ${TMPDIR}
-mv ${TMPDIR}/ls_${DIR}_2.txt ${TMPDIR}/ls_${DIR}_1.txt
-ls -la ${DIR} > ${TMPDIR}/ls_${DIR}_2.txt
-vimdiff ${TMPDIR}/ls_${DIR}_1.txt ${TMPDIR}/ls_${DIR}_2.txt
+mkdir -p ${tmpdir}
+mv ${tmpdir}/ls_${dir}_2.txt ${tmpdir}/ls_${dir}_1.txt
+ls -la ${dir} > ${tmpdir}/ls_${dir}_2.txt
+vimdiff ${tmpdir}/ls_${dir}_1.txt ${tmpdir}/ls_${dir}_2.txt

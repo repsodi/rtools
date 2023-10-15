@@ -1,7 +1,12 @@
 #!/bin/bash
 
-if [ -z "${1}" ] || [ -z "${2}" ] || [ -z "${3}" ]; then
-    echo "Usage: $(basename $0) <git-username> <git-email> <samba-username>"
+if [ -z "${1}" ] || [ -z "${2}" ]; then
+    echo "Usage: $(basename $0) <git-username> <git-email>"
+    exit
+fi
+
+if [ "$(umask)" != "0022" ]; then
+    echo "umask is not 0022."
     exit
 fi
 
@@ -17,4 +22,6 @@ set-bashrc
 echo
 set-gitconfig ${1} ${2}
 echo
-set-samba ${3}
+set-samba
+echo
+set-zsh

@@ -1,7 +1,12 @@
 #!/bin/bash
 
-if [ -z "${1}" ] || [ -z "${2}" ] || [ -z "${3}" ] || [ -z "${4}" ] || [ -z "${5}" ]; then
-    echo "Usage: $(basename $0) <git-username> <git-email> <samba-username> <pi-wifi-enable|pi-wifi-disable> <wifi-psk>"
+if [ -z "${1}" ] || [ -z "${2}" ] || [ -z "${3}" ] || [ -z "${4}" ]; then
+    echo "Usage: $(basename $0) <git-username> <git-email> <pi-wifi-enable|pi-wifi-disable> <wifi-psk>"
+    exit
+fi
+
+if [ "$(umask)" != "0022" ]; then
+    echo "umask is not 0022."
     exit
 fi
 
@@ -17,6 +22,8 @@ set-bashrc
 echo
 set-gitconfig ${1} ${2}
 echo
-set-samba ${3}
+set-samba
 echo
-set-raspbian-wifi ${4} ${5}
+set-zsh
+echo
+set-raspbian-wifi ${3} ${4}

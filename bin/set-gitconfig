@@ -9,7 +9,7 @@ if [ -z "${1}" ] || [ -z "${2}" ]; then
     exit
 fi
 
-rm ${file}
+rm -f ${file}
 git config --global user.name "${1}"
 git config --global user.email "${2}"
 git config --global core.editor vim

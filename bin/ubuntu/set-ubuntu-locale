@@ -4,6 +4,11 @@
 
 file=/etc/default/locale
 
+if [ -z $(which update-locale 2> /dev/null) ]; then
+    echo "update-locale is not installed."
+    exit
+fi
+
 if [ ! -f ${file}.ori ]; then
     echo "Creating ${file}.ori..."
     sudo cp -p ${file} ${file}.ori
@@ -11,8 +16,7 @@ else
     echo "${file}.ori exists."
 fi
 
-sudo rm ${file}
+sudo rm -f ${file}
 sudo update-locale LANG=en_US.UTF-8
 echo "${file} has been generated."
 ls -la ${file}*
-# cat ${file}

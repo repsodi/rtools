@@ -1,6 +1,11 @@
 #!/bin/bash
 
-. $(dirname $0)/base.conf
+if [ -z $(which zsh 2> /dev/null) ]; then
+    echo "Zsh is not installed."
+    exit
+fi
+
+. $(dirname $0)/base.conf > /dev/null
 echo
 
 . $(dirname $0)/../conf/shell/profile 2> /dev/null

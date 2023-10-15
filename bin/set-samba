@@ -3,15 +3,10 @@
 . $(dirname $0)/base.conf > /dev/null
 
 file=/etc/samba/smb.conf
-username=$1
+username=$USER
 
 if [ ! -f ${file} ]; then
     echo "Samba is not installed."
-    exit
-fi
-
-if [ -z "${username}" ]; then
-    echo "Usage: $(basename $0) <username>"
     exit
 fi
 
