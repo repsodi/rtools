@@ -6,7 +6,6 @@ if [ -z $(which zsh 2> /dev/null) ]; then
 fi
 
 . $(dirname $0)/base.conf > /dev/null
-echo
 
 . $(dirname $0)/../conf/shell/profile 2> /dev/null
 . $(dirname $0)/../conf/shell/rc 2> /dev/null
