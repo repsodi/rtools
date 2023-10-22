@@ -1,6 +1,6 @@
 . ${HOME}/opt/rtools/bin/base.conf > /dev/null
 
-if [ "${_LOADED_PROFILE} != "1" ]; then
+if [ "${_LOADED_PROFILE}" != "1" ]; then
     . ${HOME}/opt/rtools/conf/shell/profile
 fi
 
