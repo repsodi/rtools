@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 2023-10-16
+# 2023-11-08
 
 if [ -z "${1}" ] || [ -z "${2}" ]; then
     echo "Usage: $(basename $0) [x.y.z|latest] [stable|insider]"
@@ -31,15 +31,15 @@ download()
 vscode="Visual Studio Code"
 url_base="https://update.code.visualstudio.com"
 version=${1}
-profiles_vscode="win32-x64-user win32-user win32-arm64-user
-                 win32-x64 win32 win32-arm64
-                 win32-x64-archive win32-archive win32-arm64-archive
+profiles_vscode="win32-x64-user win32-arm64-user
+                 win32-x64 win32-arm64
+                 win32-x64-archive win32-arm64-archive
                  linux-deb-x64 linux-deb-armhf linux-deb-arm64
                  linux-rpm-x64 linux-rpm-armhf linux-rpm-arm64
                  linux-x64 linux-armhf linux-arm64
                  darwin darwin-arm64 darwin-universal"
 # TODO: cli-alpine-x64 cli-linux-armhf cli-alpine-arm64 -> cli-linux-x64 cli-linux-armhf cli-linux-arm64 ?
-profiles_vscode_cli="cli-win32-x64 cli-win32-ia32 cli-win32-arm64
+profiles_vscode_cli="cli-win32-x64 cli-win32-arm64
                      cli-alpine-x64 cli-linux-armhf cli-alpine-arm64
                      cli-darwin-x64 cli-darwin-arm64"
 type=${2}
