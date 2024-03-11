@@ -1,0 +1,4 @@
+#!/bin/sh
+
+showmount -e 192.168.0.11
+sudo mount -t nfs 192.168.0.11:/volume1/repsodi /mnt/nas

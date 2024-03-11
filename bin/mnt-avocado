@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sudo mount -t cifs -o user=repsodi,vers=1.0 //192.168.0.10/repsodi /mnt/avocado
