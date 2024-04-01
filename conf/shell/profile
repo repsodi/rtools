@@ -25,7 +25,8 @@ case $(hostname) in
         ;;
 esac
 
-export PATH=~/opt/${tool_dir}/bin/${os_name}:~/opt/${tool_dir}/bin:$PATH
+export JAVA_HOME=~/opt/jdk
+export PATH=~/opt/${tool_dir}/bin/${os_name}:~/opt/${tool_dir}/bin:${JAVA_HOME}/bin:~/.local/bin:$PATH
 
 if [ "${shell_name}" = "zsh" ]; then
     # Zsh
