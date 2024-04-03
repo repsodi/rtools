@@ -1,0 +1,3 @@
+#!/bin/sh
+
+vncserver-virtual -geometry 1920x1080

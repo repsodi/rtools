@@ -1,3 +1,0 @@
-#!/bin/sh
-
-vncserver-virtual -randr=1920x1080
