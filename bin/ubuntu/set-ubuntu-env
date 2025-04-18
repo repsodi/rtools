@@ -16,9 +16,7 @@ echo
 . $(dirname $0)/../../conf/shell/profile 2> /dev/null
 . $(dirname $0)/../../conf/shell/rc 2> /dev/null
 
-set-profile
-echo
-set-bashrc
+set-bash
 echo
 set-gitconfig ${1} ${2}
 echo

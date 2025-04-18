@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ -z $(which bash 2> /dev/null) ]; then
+    echo "Bash is not installed."
+    exit
+fi
+
+. $(dirname $0)/base.conf > /dev/null
+
+. $(dirname $0)/../conf/shell/profile 2> /dev/null
+. $(dirname $0)/../conf/shell/rc 2> /dev/null
+
+if [ -e ${HOME}/.bash_profile ]; then
+    set-bash-profile
+    echo
+fi
+if [ -e ${HOME}/.profile ]; then
+    set-profile
+    echo
+fi
+set-bashrc
