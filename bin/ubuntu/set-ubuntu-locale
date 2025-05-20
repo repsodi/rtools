@@ -2,7 +2,8 @@
 
 . $(dirname $0)/../base.conf > /dev/null
 
-file=/etc/default/locale
+# /etc/default/locale or /etc/locale.conf
+file=$(grep -oP '\$locale_file\s*=\s*["'"'"'].*?["'"'"']' /usr/sbin/update-locale | sed -E 's/^\$locale_file\s*=\s*["'"'"'](.*)["'"'"']$/\1/')
 
 if [ -z $(which update-locale 2> /dev/null) ]; then
     echo "update-locale is not installed."
