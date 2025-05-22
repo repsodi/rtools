@@ -16,14 +16,14 @@ if [ -z "${wifi}" ] || [ -z "${psk}" ]; then
     exit
 fi
 
-if [ ! -f ${file1}.ori ]; then
-    echo "Creating ${file1}.ori..."
-    sudo cp -p ${file1} ${file1}.ori
+if [ ! -f ${file1}.orig ]; then
+    echo "Creating ${file1}.orig..."
+    sudo cp -p ${file1} ${file1}.orig
 else
-    echo "${file1}.ori exists."
+    echo "${file1}.orig exists."
 fi
 
-sudo cp -p ${file1}.ori ${file1}
+sudo cp -p ${file1}.orig ${file1}
 sudo sh -c "echo >> ${file1}"
 sudo sh -c "echo \# Disable WiFi >> ${file1}"
 if [ "${wifi}" = "pi-wifi-disable" ]; then
@@ -42,14 +42,14 @@ ls -la ${file2}*
 
 echo
 
-if [ ! -f ${file3}.ori ]; then
-    echo "Creating ${file3}.ori..."
-    sudo cp -p ${file3} ${file3}.ori
+if [ ! -f ${file3}.orig ]; then
+    echo "Creating ${file3}.orig..."
+    sudo cp -p ${file3} ${file3}.orig
 else
-    echo "${file3}.ori exists."
+    echo "${file3}.orig exists."
 fi
 
-sudo sh -c "cat ${file3}.ori ${config3} > ${file3}"
+sudo sh -c "cat ${file3}.orig ${config3} > ${file3}"
 if [ ! -z $psk ]; then
     sudo sed -i "s/\*\*\*\*\*\*\*\*/$psk/g" ${file3}
 fi
