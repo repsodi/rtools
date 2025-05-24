@@ -3,11 +3,15 @@
 . $(dirname $0)/../base.conf > /dev/null
 
 file1=/boot/config.txt
+if [ -f "/boot/firmware/config.txt" ]; then
+    file1=/boot/firmware/config.txt
+fi
 
 file2=/etc/modprobe.d/8192cu.conf
 
 file3=/etc/wpa_supplicant/wpa_supplicant.conf
 config3=${HOME}/opt/${tool_dir}/conf/${os_name}/wpa_supplicant.conf
+
 wifi=$1
 psk=$2
 
@@ -42,16 +46,27 @@ ls -la ${file2}*
 
 echo
 
-if [ ! -f ${file3}.orig ]; then
-    echo "Creating ${file3}.orig..."
-    sudo cp -p ${file3} ${file3}.orig
-else
-    echo "${file3}.orig exists."
-fi
+if [ -f ${file3} ]; then
+    if [ ! -f ${file3}.orig ]; then
+        echo "Creating ${file3}.orig..."
+        sudo cp -p ${file3} ${file3}.orig
+    else
+        echo "${file3}.orig exists."
+    fi
 
-sudo sh -c "cat ${file3}.orig ${config3} > ${file3}"
-if [ ! -z $psk ]; then
-    sudo sed -i "s/\*\*\*\*\*\*\*\*/$psk/g" ${file3}
+    sudo sh -c "cat ${file3}.orig ${config3} > ${file3}"
+    if [ ! -z $psk ]; then
+        sudo sed -i "s/\*\*\*\*\*\*\*\*/${psk}/g" ${file3}
+    fi
+    echo "${file3} has been generated."
+    ls -la ${file3}*
+else
+    sudo nmcli device wifi rescan
+    sleep 5
+    nmcli device wifi list
+    sudo nmcli device wifi connect "ebony_2.4G" password "${psk}"
+    sudo nmcli device wifi connect "ebony_5G" password "${psk}"
+    sudo nmcli device wifi connect "ebony_iv_2.4G" password "${psk}"
+    sudo nmcli device wifi connect "ebony_iv_5G" password "${psk}"
+    ls -la /etc/NetworkManager/system-connections
 fi
-echo "${file3} has been generated."
-ls -la ${file3}*

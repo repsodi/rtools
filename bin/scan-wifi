@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+sudo nmcli device wifi rescan
+sleep 5
+nmcli device wifi list
