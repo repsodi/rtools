@@ -1,4 +1,12 @@
 #!/bin/sh
 
+mnt_path=/mnt/nas
+
+if [ ! -d ${mnt_path} ]; then
+    echo "Creating ${mnt_path}..."
+    mkdir ${mnt_path}
+fi
+
 showmount -e 192.168.0.11
-sudo mount -t nfs 192.168.0.11:/volume1/repsodi /mnt/nas
+sudo mount -t nfs 192.168.0.11:/volume1/repsodi ${mnt_path}
+echo "Mounted ${mnt_path}!"

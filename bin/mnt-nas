@@ -1,3 +1,11 @@
 #!/bin/sh
 
-sudo mount -t cifs -o user=repsodi,vers=1.0 //192.168.0.11/repsodi /mnt/nas
+mnt_path=/mnt/nas
+
+if [ ! -d ${mnt_path} ]; then
+    echo "Creating ${mnt_path}..."
+    mkdir ${mnt_path}
+fi
+
+sudo mount -t cifs -o user=repsodi,vers=1.0 //192.168.0.11/repsodi ${mnt_path}
+echo "Mounted ${mnt_path}!"
