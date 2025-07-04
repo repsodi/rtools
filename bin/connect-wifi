@@ -1,0 +1,11 @@
+#!/bin/sh
+
+ap=$1
+password=$2
+
+if [ -z "${ap}" ] || [ -z "${password}" ]; then
+    echo "Usage: $(basename $0) <ap> <password>"
+    exit
+fi
+
+sudo nmcli device wifi connect "${ap}" password "${password}"
